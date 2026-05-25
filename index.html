@@ -3,11 +3,538 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My CV Website</title>
+  <title>Your Name | CV Website</title>
+
+  <style>
+    :root {
+      --bg: #f7f4ef;
+      --card: #ffffff;
+      --text: #1f2933;
+      --muted: #6b7280;
+      --accent: #2f6f5e;
+      --accent-light: #e3f1ec;
+      --border: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav .logo {
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    nav ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      font-size: 14px;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 72px 24px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+      min-height: 70vh;
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero p {
+      font-size: 19px;
+      color: var(--muted);
+      max-width: 680px;
+      margin-bottom: 28px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-weight: 600;
+      border: 1px solid var(--accent);
+    }
+
+    .button.primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--accent);
+    }
+
+    .profile-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    .profile-placeholder {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .profile-card p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    h2 {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      max-width: 760px;
+      margin-bottom: 32px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.04);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: var(--accent);
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      background: var(--accent-light);
+      color: var(--accent);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      background: var(--card);
+      border-left: 4px solid var(--accent);
+      padding: 20px;
+      border-radius: 16px;
+      border-top: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .timeline-item h3 {
+      margin-bottom: 6px;
+    }
+
+    .timeline-item .meta {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .video-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.04);
+    }
+
+    .video-thumbnail {
+      height: 150px;
+      background: linear-gradient(135deg, var(--accent-light), #ffffff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .video-content {
+      padding: 20px;
+    }
+
+    .video-content h3 {
+      margin-bottom: 8px;
+      color: var(--accent);
+    }
+
+    .video-content p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 14px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 36px 24px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      background: var(--card);
+    }
+
+    @media (max-width: 850px) {
+      nav {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .grid,
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Hello, I’m [Your Name]</h1>
-  <p>Welcome to my personal CV website.</p>
-  <p>I work on European innovation projects, circular economy, digital technologies and sustainability.</p>
+  <header>
+    <nav>
+      <div class="logo">Your Name</div>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#expertise">Expertise</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#videos">Videos</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <h1>Hello, I’m <span>Your Name</span>.</h1>
+        <p>
+          I am a professional working on European innovation projects,
+          sustainability, circular economy, digital technologies and research-driven
+          collaboration.
+        </p>
+
+        <div class="buttons">
+          <a class="button primary" href="#contact">Contact me</a>
+          <a class="button secondary" href="#projects">View projects</a>
+        </div>
+      </div>
+
+      <div class="profile-card">
+        <div class="profile-placeholder">YN</div>
+        <h3>Your Professional Title</h3>
+        <p>
+          Add here a short professional description. For example:
+          R&D Manager, EU project specialist, sustainability consultant,
+          innovation manager or researcher.
+        </p>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About me</h2>
+      <p class="section-intro">
+        Write here a short introduction about yourself. Mention your background,
+        your current role, your main areas of expertise, and the type of projects
+        or collaborations you are interested in.
+      </p>
+
+      <p>
+        You can use this space to explain your professional approach in a more
+        personal way. For example, you may describe your interest in connecting
+        research, industry and sustainability, or your experience in managing
+        European projects and supporting innovation pathways.
+      </p>
+    </section>
+
+    <section id="expertise">
+      <h2>Expertise</h2>
+      <p class="section-intro">
+        Highlight your main areas of expertise. Keep them clear and easy to read.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>European Projects</h3>
+          <p>
+            Proposal writing, project management, impact planning, exploitation,
+            dissemination and stakeholder engagement.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Circular Economy</h3>
+          <p>
+            Circular business models, sustainability strategies, value-chain
+            collaboration, recycling, reuse and product life extension.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Digital Innovation</h3>
+          <p>
+            Digital technologies, IoT, AI, data-driven decision-making and tools
+            supporting sustainable transformation.
+          </p>
+        </div>
+      </div>
+
+      <div class="tag-list">
+        <span class="tag">Horizon Europe</span>
+        <span class="tag">Circular Economy</span>
+        <span class="tag">Sustainability</span>
+        <span class="tag">Innovation</span>
+        <span class="tag">Project Management</span>
+        <span class="tag">Digital Technologies</span>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Selected projects</h2>
+      <p class="section-intro">
+        Use this section to present your most relevant projects, initiatives or
+        professional achievements.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Project name 1</h3>
+          <p>
+            Briefly describe the project, your role, the main objectives and the
+            impact achieved or expected.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Project name 2</h3>
+          <p>
+            Briefly describe another project. Focus on what you contributed and
+            why the project is relevant.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Project name 3</h3>
+          <p>
+            Add another project, case study, research activity or collaboration.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="videos">
+      <h2>Videos & media</h2>
+      <p class="section-intro">
+        Add here links to videos, webinars, interviews, project presentations,
+        workshops or training material you have produced or contributed to.
+      </p>
+
+      <div class="video-grid">
+        <div class="video-card">
+          <div class="video-thumbnail">Video 1</div>
+          <div class="video-content">
+            <h3>Video title 1</h3>
+            <p>
+              Short description of the video. For example: a project presentation,
+              a workshop recording, or an educational video.
+            </p>
+            <a href="https://example.com" target="_blank">Watch video →</a>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-thumbnail">Video 2</div>
+          <div class="video-content">
+            <h3>Video title 2</h3>
+            <p>
+              Short description of the video content and why it is relevant for
+              your professional profile.
+            </p>
+            <a href="https://example.com" target="_blank">Watch video →</a>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-thumbnail">Video 3</div>
+          <div class="video-content">
+            <h3>Video title 3</h3>
+            <p>
+              Add a third video, webinar or presentation link. You can add more
+              cards later by copying this block.
+            </p>
+            <a href="https://example.com" target="_blank">Watch video →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <p class="section-intro">
+        Add your professional experience in reverse chronological order.
+      </p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>Current role</h3>
+          <div class="meta">Company / Organisation · Year – Present</div>
+          <p>
+            Describe your current role, responsibilities and main achievements.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Previous role</h3>
+          <div class="meta">Company / Organisation · Year – Year</div>
+          <p>
+            Describe a previous professional experience or relevant role.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Education or additional experience</h3>
+          <div class="meta">University / Organisation · Year</div>
+          <p>
+            Add education, certifications, research experience or other relevant
+            background information.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p class="section-intro">
+        Add your email, LinkedIn profile, and any other relevant professional link.
+      </p>
+
+      <div class="card">
+        <p><strong>Email:</strong> <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com" target="_blank">linkedin.com/in/your-profile</a></p>
+        <p><strong>Location:</strong> Your city, Country</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Your Name. All rights reserved.</p>
+  </footer>
 </body>
 </html>
