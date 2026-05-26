@@ -245,9 +245,20 @@ footer {
   }
 
   .works-grid {
-    grid-template-columns: 1fr;
-  }
+  grid-template-columns: 1fr;
+}
 
+.work-card.large,
+.work-card.medium,
+.work-card.small,
+.work-card.wide {
+  grid-column: span 1;
+  margin-top: 0;
+}
+
+.work-card.offset {
+  margin-top: 0;
+}
   footer {
     padding: 22px;
   }
