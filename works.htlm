@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Works | Photographer Name</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <a class="logo" href="index.html">Photographer Name</a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a class="active" href="works.html">Works</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h1>Selected works.</h1>
+      <p>
+        A selection of photography projects, portraits, events,
+        editorial stories and visual experiments.
+      </p>
+    </section>
+
+    <section class="works-grid">
+      <a class="work-card" href="#">
+        <div class="work-image">
+          <img src="https://images.unsplash.com/photo-1492447166138-50c3889fccb1?auto=format&fit=crop&w=1200&q=80" alt="Portrait project">
+        </div>
+        <div class="work-info">
+          <strong>Portrait Series</strong>
+          <span>Portrait / 2026</span>
+        </div>
+      </a>
+
+      <a class="work-card" href="#">
+        <div class="work-image">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80" alt="Outdoor photography">
+        </div>
+        <div class="work-info">
+          <strong>Landscape Notes</strong>
+          <span>Personal / 2025</span>
+        </div>
+      </a>
+
+      <a class="work-card" href="#">
+        <div class="work-image">
+          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80" alt="Event photography">
+        </div>
+        <div class="work-info">
+          <strong>Event Story</strong>
+          <span>Event / 2025</span>
+        </div>
+      </a>
+
+      <a class="work-card" href="#">
+        <div class="work-image">
+          <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80" alt="Concert photography">
+        </div>
+        <div class="work-info">
+          <strong>Live Moments</strong>
+          <span>Music / 2024</span>
+        </div>
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Photographer Name
+  </footer>
+</body>
+</html>
